@@ -1,0 +1,78 @@
+
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+}
+
+html, body {
+  font-family: sans-serif;
+  font-size: 16px;
+  background-color: #F9F9FE;
+}
+
+body > .ember-view {
+  float: left;
+  width: 100%;
+  height: 100%;
+}
+
+.scaffolding {
+  max-width: 960px;
+  width: 100%;
+  margin: 10px auto;
+}
+
+.scaffolding.small {
+  max-width: 560px;
+}
+
+footer {
+  background-color: #FFF;
+  box-shadow: 0 -1px 1px 0 #EBEDF2;
+  overflow: hidden;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 20px;
+}
+
+@mixin bubble( $diameter ) {
+  width: $diameter;
+  height: $diameter;
+  border-radius: $diameter / 2;
+  display: inline-block;
+  text-align: center;
+  line-height: $diameter;
+  box-shadow: 0px 1px 2px 0 #8D8D8E;
+  text-decoration: none;
+  color: #FFF;
+  font-size: $diameter * 0.15;
+  margin: 10px;
+  text-shadow: 0px 1px 2px #000;
+}
+
+#index {
+  text-align: center;
+  padding-top: 200px;
+}
+
+.bubble {
+  @include bubble(200px);
+
+  &.language:nth-of-type(1) {
+    background-color: #4E5BF9;
+  }
+
+  &.language:nth-of-type(2) {
+    background-color: #FF5A5A;
+  }
+
+  &.language:nth-of-type(3) {
+    background: url(https://cdn1.iconfinder.com/data/icons/european-country-flags/83/france-512.png);
+    background-size: 200px;
+  }
+}
