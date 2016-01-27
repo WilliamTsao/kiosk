@@ -2,6 +2,10 @@
 
 module.exports = function(environment) {
   var ENV = {
+    i18n: {
+      defaultLocale: 'unset'
+    },
+
     modulePrefix: 'kiosk',
     environment: environment,
     baseURL: '/',

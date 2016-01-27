@@ -1,10 +1,3 @@
 <section id="index">
-  {{language}}
-  {{#if language}}
-    <h1> You picked {{language}}, yay!</h1>
-  {{else}}
-    <a {{action 'set_language' 'english'}} class="bubble language" href="">English</a>
-    <a {{action 'set_language' 'spanish'}} class="bubble language" href="">Espanol</a>
-    <a {{action 'set_language' 'french'}} class="bubble language" href="">Francaise</a>
-  {{/if}}
+  {{k-language-picker}}
 </section>
