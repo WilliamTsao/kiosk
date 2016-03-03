@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,700,800);
 
 *, *:before, *:after {
   -moz-box-sizing: border-box;
@@ -9,7 +10,7 @@
 }
 
 html, body {
-  font-family: sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   background-color: #F9F9FE;
 }
@@ -18,6 +19,7 @@ body > .ember-view {
   float: left;
   width: 100%;
   height: 100%;
+  padding-bottom: 80px;
 }
 
 .scaffolding {
@@ -34,7 +36,7 @@ footer {
   background-color: #FFF;
   box-shadow: 0 -1px 1px 0 #EBEDF2;
   overflow: hidden;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;
   padding: 20px;
@@ -57,7 +59,114 @@ footer {
 
 #index {
   text-align: center;
-  padding-top: 200px;
+  padding-top: 50px;
+}
+
+.card {
+  background-color: #FFF;
+  box-shadow: 0 1px 1px 0 #EBEDF2;
+  padding: 20px;
+  margin-bottom : 20px;
+  overflow: hidden;
+
+  h1 {
+    font-size: 2em;
+    color: #3A3E3E;
+  }
+
+  h2 {
+    font-size: 1.3em;
+    color: #5D5D5D;
+  }
+
+  &.news {
+  
+    article {
+      border-left: 3px solid #888;
+      float: left;
+      width: 100%;
+      padding: 5px;
+      margin-top: 4px;
+      background: #FEFEFE;
+    }
+
+    a {
+      color: #333;
+      text-decoration: none;
+    }
+
+    h2 {
+      text-align: left;
+      font-weight: 500;
+      font-size: 17px;
+      margin-bottom: 4px;
+    }
+
+    p {
+      float: left;
+      font-weight: 200;
+      color: #3A3E3E;
+      font-size: 14px;
+    }
+
+    img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      display: block;
+      float: left
+    }
+
+    section.articles {
+      max-height: 366px;
+      overflow-y: scroll;
+      border-top: 1px solid #DDD;
+      margin-top: 20px;
+    }
+  }
+
+  &.browse {
+    h2 {
+      margin-bottom: 15px;
+    }
+
+    a.start {
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 2px;
+      height: 64px;
+      display: block;
+      font-size: 1.9em;
+      margin: 20px auto;
+      line-height: 64px;
+      color: #fff;
+      font-weight: 400;
+      background-color: #00aeef;
+      box-shadow: inset 0 1px #3dcaff, 0px 5px #0076a3, 0 3px 5px rgba(0, 0, 0, 0.3);
+      transition: background-color .25s;
+      text-shadow: -1px 1px #009bd6;
+
+      &:active {
+        box-shadow: none;
+        position: relative;
+        top: 5px;
+      }
+
+      &:hover {
+        background-color: #1c8eba;
+        box-shadow: inset 0 1px #40b5e2,0px 5px #0076a3,0 3px 5px rgba(0,0,0,.3);
+        text-shadow: -1px 1px #197da4;
+      }
+    }
+  }
+
+  &.map {
+    h1 {
+      margin-bottom: 15px;
+    }
+  }
 }
 
 .bubble {
