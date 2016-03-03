@@ -7,10 +7,11 @@
   margin: 0px;
   padding: 0px;
   border: 0px;
+  font-family: 'Open Sans', sans-serif;
+
 }
 
 html, body {
-  font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   background-color: #F9F9FE;
 }
@@ -33,6 +34,35 @@ body > .ember-view {
 }
 
 footer {
+
+  .brand {
+    float: right;
+
+    h2 {
+      float: right;
+    }
+  }
+
+  img {
+    width: 40px;
+    float: left;
+    height: auto;
+    margin-right: 10px;
+  }
+
+  h2 {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 35px;
+
+    text-align: left;
+    color: #555;
+  }
+
+  nav {
+    float: left;
+  }
+
   background-color: #FFF;
   box-shadow: 0 -1px 1px 0 #EBEDF2;
   overflow: hidden;
@@ -40,6 +70,7 @@ footer {
   bottom: 0;
   width: 100%;
   padding: 20px;
+  color: #333;
 }
 
 @mixin bubble( $diameter ) {
@@ -72,15 +103,27 @@ footer {
   h1 {
     font-size: 2em;
     color: #3A3E3E;
+    font-weight: 400;
   }
 
   h2 {
-    font-size: 1.3em;
+    font-size: 1.7em;
     color: #5D5D5D;
+    font-weight: 400;
   }
 
   &.news {
-  
+    > h2 {
+      text-align: left;
+    }
+
+    .articles {
+      max-height: 366px;
+      overflow-y: scroll;
+      border-top: 1px solid #DDD;
+      margin-top: 20px;
+    }
+
     article {
       border-left: 3px solid #888;
       float: left;
@@ -88,40 +131,33 @@ footer {
       padding: 5px;
       margin-top: 4px;
       background: #FEFEFE;
-    }
 
-    a {
-      color: #333;
-      text-decoration: none;
-    }
+      h2 {
+        text-align: left;
+        font-weight: 500;
+        font-size: 17px;
+        margin-bottom: 4px;
+      }
 
-    h2 {
-      text-align: left;
-      font-weight: 500;
-      font-size: 17px;
-      margin-bottom: 4px;
-    }
+      a {
+        color: #333;
+        text-decoration: none;
+      }
 
-    p {
-      float: left;
-      font-weight: 200;
-      color: #3A3E3E;
-      font-size: 14px;
-    }
+      p {
+        float: left;
+        font-weight: 200;
+        color: #3A3E3E;
+        font-size: 14px;
+      }
 
-    img {
-      width: 100px;
-      height: 100px;
-      object-fit: contain;
-      display: block;
-      float: left
-    }
-
-    section.articles {
-      max-height: 366px;
-      overflow-y: scroll;
-      border-top: 1px solid #DDD;
-      margin-top: 20px;
+      img {
+        width: 100px;
+        height: 100px;
+        object-fit: contain;
+        display: block;
+        float: left
+      }
     }
   }
 
@@ -143,10 +179,9 @@ footer {
       line-height: 64px;
       color: #fff;
       font-weight: 400;
-      background-color: #00aeef;
-      box-shadow: inset 0 1px #3dcaff, 0px 5px #0076a3, 0 3px 5px rgba(0, 0, 0, 0.3);
+      background-color: #22C3FF;
+      box-shadow: inset 0 1px #3dcaff, 0px 5px #0A96CC, 0 3px 5px rgba(0, 0, 0, 0.3);
       transition: background-color .25s;
-      text-shadow: -1px 1px #009bd6;
 
       &:active {
         box-shadow: none;
@@ -155,17 +190,48 @@ footer {
       }
 
       &:hover {
-        background-color: #1c8eba;
-        box-shadow: inset 0 1px #40b5e2,0px 5px #0076a3,0 3px 5px rgba(0,0,0,.3);
-        text-shadow: -1px 1px #197da4;
+        background-color: #069FF5;
       }
     }
   }
 
   &.map {
-    h1 {
-      margin-bottom: 15px;
+    button {
+      padding: 10px;
+      letter-spacing: 1px;
+      font-size: 20px;
+
+      min-width: 110px;
+      margin: 0px 5px;
     }
+
+    .categories {
+      padding: 15px 0px 25px 0px;
+      width: 100%;
+      text-align: center;
+    }
+  }
+}
+
+button, .button {
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  background-color: #00EF73;
+  box-shadow: inset 0 1px #70F98F, 0px 5px #0BB149, 0 3px 5px rgba(0, 0, 0, 0.3);
+  transition: background-color .25s;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.47);
+  cursor: pointer;
+
+  &:active {
+    box-shadow: none;
+    position: relative;
+    top: 5px;
+  }
+
+  &:hover {
+    background-color: #10CA69;
+    text-shadow: 0px 1px rgba(0, 0, 0, 0.6);
   }
 }
 

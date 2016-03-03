@@ -9,6 +9,7 @@ export default {
   //
   // "key.with.interpolation": "Text with {{anInterpolation}}"
 
-  "you_selected": "Ha seleccionado español",
-  "news_header": "Noticias locales"
+  "you_selected": "Navegando en español",
+  "news_header": "Noticias locales",
+  "food": "Comidas"
 };

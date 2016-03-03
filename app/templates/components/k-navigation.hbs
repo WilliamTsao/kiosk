@@ -1,1 +1,8 @@
-<footer><nav> {{#link-to 'index'}}Help{{/link-to}}</nav></footer>
+<footer>
+  <nav> 
+    {{#if i18n.isSet}}<h2> {{t "you_selected"}}</h2>{{/if }}
+  </nav>
+  <div class="brand">
+    <img src="http://innovatenb.org/wp-content/uploads/2015/09/linkedinlogo1.png"> <h2>New Brunswick Office of Innovation</h2>
+  </div>
+</footer>
