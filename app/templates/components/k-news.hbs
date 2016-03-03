@@ -1,0 +1,15 @@
+<section class="card news">
+  <h1>{{t "news_header"}}</h1>
+
+  <section class="articles">
+  {{#each articles as |article|}}
+    <article>
+      <a target="_blank" href="{{ article.link }}">
+        <h2>{{ article.title }}</h2>
+        <p>{{ article.contentSnippet }}</p>
+      </a>
+    </article>
+  {{/each}}
+  </section>
+  
+</section>
