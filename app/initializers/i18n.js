@@ -5,6 +5,9 @@ export default {
 
   initialize(registry, app) {
     app.inject('component', 'i18n', 'service:i18n');
+    app.inject('controller', 'i18n', 'service:i18n');
+
+
     registry.lookup('service:i18n').set('isSet', function() {
       return this.get('locale') !== 'unset';
     }.property('locale'));
