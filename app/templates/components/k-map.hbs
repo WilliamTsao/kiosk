@@ -1,4 +1,4 @@
-<section class="card map">
+<section class="card map animated fadeInUp">
   <h1> {{t "map_header"}} </h1>
 
   <section class="categories">
@@ -7,5 +7,12 @@
     {{/each}}
   </section>
 
-  <iframe src="https://www.google.com/maps/d/embed?mid=zLxBmgs3Es0I.kOIvw74Mhrcc&hl=en_US" width="100%" height="500"></iframe>
-</section>  
+
+  {{#mapbox-map mapId='ember-cli-mapbox.7c3914f2' as |map| }}
+    {{#each datapoints as |point|}}
+      {{mapbox-marker map=map coordinates=(mapbox-coords point.latitude point.longitude) recenter=true}}
+    {{/each}}
+  {{/mapbox-map}}
+
+
+</section>

@@ -11,5 +11,7 @@ export default {
 
   "you_selected": "Navegando en español",
   "news_header": "Noticias locales",
-  "food": "Comidas"
+  "food": "Comidas",
+  "cats": "Gatos",
+  "bars": "Barras"
 };

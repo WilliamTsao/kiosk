@@ -1,3 +1,7 @@
-<a {{action 'set_language' 'en'}} class="bubble language" href="">English</a>
-<a {{action 'set_language' 'es'}} class="bubble language" href="">Espanol</a>
-<a {{action 'set_language' 'fr'}} class="bubble language" href="">Francaise</a>
+<article class="animated bounceIn card language">
+  <h1>Select a language</h1>
+
+  {{#each i18n.locales as |l| }}
+    <a {{action 'set_language' l}} class="bubble language" href="">{{get i18n.names l }}</a>
+  {{/each}}
+</article>

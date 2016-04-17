@@ -8,7 +8,10 @@ export default {
   // },
   //
   // "key.with.interpolation": "Text with {{anInterpolation}}"
-
+  "lang_meta": {
+    "text": "English"
+  },
+  
   "you_selected": "You are browsing in English",
   "news_header": "Local News",
 

@@ -20,6 +20,10 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+    },
+
+    mapbox: {
+      accessToken: 'pk.eyJ1Ijoibmlja3NhaGxlciIsImEiOiJjaW4zcWYxMGowYzJ5dmxtNGF5eHNuMmh5In0.bIkQOshLMbzgIgfWVd6Ixw',
     }
   };
 
