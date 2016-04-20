@@ -3,16 +3,14 @@
 
   <section class="categories">
     {{#each categories as |category| }}
-      <button>{{category.icon}} {{t category.tag}}</button>
+      <button {{action 'set_filter' category}}> {{category}} {{!-- {{category.icon}} {{t category.tag}} --}}</button>
     {{/each}}
   </section>
 
-
-  {{#mapbox-map mapId='ember-cli-mapbox.7c3914f2' as |map| }}
-    {{#each datapoints as |point|}}
-      {{mapbox-marker map=map coordinates=(mapbox-coords point.latitude point.longitude) recenter=true}}
+  {{#mapbox-map mapId='mapbox.streets' divId="map" center=(mapbox-coords 40.4939069 -74.4456473) zoom=13 as |map|}}
+    {{#each points as |point|}}
+      {{mapbox-marker map=map color=(category-color point) popup-title=point.name url='http://google.com' symbol='star' coordinates=(mapbox-coords point.latitude point.longitude)}}
+    
     {{/each}}
   {{/mapbox-map}}
-
-
 </section>
