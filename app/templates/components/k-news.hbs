@@ -2,12 +2,12 @@
   <h2>{{t "news_header"}}</h2>
 
   <section class="articles">
-  {{#each articles as |article|}}
+  {{#each articles as |article index|}}
     <article>
-      <a target="_blank" href="{{ article.link }}">
+      {{#link-to 'news.article' index}} {{!-- target="_blank" --}}
         <h2>{{ article.title }}</h2>
         <p>{{{ article.contentSnippet }}}</p>
-      </a>
+      {{/link-to}}
     </article>
   {{/each}}
   </section>

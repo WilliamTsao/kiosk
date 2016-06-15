@@ -5,12 +5,13 @@ export default Ember.Component.extend({
 
   points: function () {
     var filter = this.get('filter');
-    if (filter && filter !== '')
+    if (filter && filter !== '') {
       return this.get('datapoints').filter(function(item) {
         return item.categories.includes(filter);
       });
-    else
+    } else {
       return this.get('datapoints');
+    }
   }.property('filter', 'datapoints'),
 
   actions: {
