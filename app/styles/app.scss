@@ -25,7 +25,7 @@ body > .ember-view {
 }
 
 .scaffolding {
-  max-width: 960px;
+  max-width: 1500px;
   width: 100%;
   margin: 10px auto;
 }
@@ -115,14 +115,17 @@ footer {
   &.news {
     > h2 {
       text-align: left;
+      margin-bottom: 20px;
     }
 
     .articles {
-      max-height: 366px;
-      overflow-y: scroll;
-      border-top: 1px solid #DDD;
-      margin-top: 20px;
+      height: 512px;
     }
+  }
+
+  .articles {
+    overflow-y: scroll;
+    border-top: 1px solid #DDD;
 
     article {
       border-left: 3px solid #888;
@@ -131,12 +134,21 @@ footer {
       padding: 5px;
       margin-top: 4px;
       background: #FEFEFE;
+      text-align: left;
 
       h2 {
         text-align: left;
         font-weight: 500;
         font-size: 17px;
         margin-bottom: 4px;
+      }
+
+      h3 {
+        font-size: 12px;
+        font-weight: 700;
+        display: inline-block;
+        float:left;
+        clear: left;
       }
 
       a {
@@ -149,6 +161,7 @@ footer {
         font-weight: 200;
         color: #3A3E3E;
         font-size: 14px;
+        margin-bottom: 10px;
       }
 
       img {
@@ -157,6 +170,12 @@ footer {
         object-fit: contain;
         display: block;
         float: left
+      }
+
+      button {
+        float: left;
+        clear: left;
+        margin-top: 10px;
       }
     }
   }
@@ -199,8 +218,9 @@ footer {
     #map {
       width: 100%;
       height: 512px;
-      height: 512px;
       background-color: #CCC;
+      max-width: 725px;
+      float:left;
     }
 
     button {
@@ -217,6 +237,14 @@ footer {
       padding: 15px 0px 25px 0px;
       width: 100%;
       text-align: center;
+    }
+
+    .articles {
+      width: 100%;
+      margin-bottom: 10px;
+      max-width: 725px;      
+      height: 512px;
+      float:left;
     }
   }
 

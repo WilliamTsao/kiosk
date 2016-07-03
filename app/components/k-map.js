@@ -1,7 +1,14 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  categories: ["All Categories","Be Well::Children & Youth","Be Well::Adults","Feel Well::Adults","Feel Well::Children & Youth","Feel Well::Seniors","Be Well::Seniors","Eat Well::Children & Youth","Eat Well::Adults","Eat Well::Seniors","Move Well::Adults","Be Safe::Home Services","Move Well::Children & Youth","Move Well::Seniors","Events","Be Safe::Domestic Violence","Uncategorized"],
+  //["All Categories","Be Well::Children & Youth","Be Well::Adults","Feel Well::Adults","Feel Well::Children & Youth","Feel Well::Seniors","Be Well::Seniors","Eat Well::Children & Youth","Eat Well::Adults","Eat Well::Seniors","Move Well::Adults","Be Safe::Home Services","Move Well::Children & Youth","Move Well::Seniors","Events","Be Safe::Domestic Violence","Uncategorized"],
+  categories: ["All", "Services", "Health & Care", "Education", "Food"],
+
+  actions: {
+    set_filter: function(f) {
+      this.set('filter', f);
+    }
+  },
 
   points: function () {
     var filter = this.get('filter');
@@ -13,12 +20,6 @@ export default Ember.Component.extend({
       return this.get('datapoints');
     }
   }.property('filter', 'datapoints'),
-
-  actions: {
-    set_filter: function(f) {
-      this.set('filter', f);
-    }
-  }
 });
 
 /* USED TO PARSE CATEGORIES */

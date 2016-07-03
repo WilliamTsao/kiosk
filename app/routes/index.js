@@ -10,5 +10,11 @@ export default Ember.Route.extend({
         }),
       mapdata: Ember.$.get('/data.json')
     });
+  },
+
+  actions: {
+    set_filter(filter) {
+      this.set('controller.model.filter', filter);
+    }
   }
 });

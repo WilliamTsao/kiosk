@@ -1,16 +1,26 @@
-<section class="card map animated fadeInUp">
-  <h1> {{t "map_header"}} </h1>
+<section class="categories">
+  {{#each categories as |category| }}
+    <button {{action 'set_filter' category}}> {{category}} </button>
+  {{/each}}
+</section>
 
-  <section class="categories">
-    {{#each categories as |category| }}
-      <button {{action 'set_filter' category}}> {{category}} {{!-- {{category.icon}} {{t category.tag}} --}}</button>
-    {{/each}}
-  </section>
+{{#mapbox-map mapId='mapbox.streets' divId="map" center=(mapbox-coords 40.4939069 -74.4456473) zoom=13 as |map|}}
+  {{#each points as |point|}}
+    {{mapbox-marker map=map color=(category-color point) popup-title=point.name url=point.websiteUrl symbol='star' coordinates=(mapbox-coords point.latitude point.longitude)}}
+  {{/each}}
+{{/mapbox-map}}
 
-  {{#mapbox-map mapId='mapbox.streets' divId="map" center=(mapbox-coords 40.4939069 -74.4456473) zoom=13 as |map|}}
-    {{#each points as |point|}}
-      {{mapbox-marker map=map color=(category-color point) popup-title=point.name url='http://google.com' symbol='star' coordinates=(mapbox-coords point.latitude point.longitude)}}
-    
-    {{/each}}
-  {{/mapbox-map}}
+<section class="articles">
+  {{#each points as |point|}}
+    <article>
+      {{#link-to 'news.article' 1}}
+        <h2>{{ point.name }}</h2>
+        <p>{{ point.info }}</p>
+        <h3><a href={{point.websiteUrl}}>{{point.websiteUrl}}</a></h3>
+        <h3>{{ point.address }} {{ point.city }}, {{ point.state }} {{ point.zip }} | {{point.phone}}</h3>
+
+        <button>Send me this</button>
+      {{/link-to}}
+    </article>
+  {{/each}}
 </section>

@@ -3,6 +3,12 @@ import Ember from 'ember';
 export function categoryColor(params/*, hash*/) {
 
   var colors = {
+    "All": "#001F3F",
+    "Services": "#0074D9",
+    "Health & Care": "#7FDBFF",
+    "Education": "#39CCCC",
+    "Food": "#3D9970",
+    
     "All Categories": "#001F3F",
     "Be Well::Children & Youth": "#0074D9",
     "Be Well::Adults": "#7FDBFF",
@@ -23,7 +29,7 @@ export function categoryColor(params/*, hash*/) {
   };
 
   var list = params[0].categories.split(';');
-  return colors[list[list.length - 1]]
+  return colors[list[list.length - 1]];
 }
 
 export default Ember.Helper.helper(categoryColor);
