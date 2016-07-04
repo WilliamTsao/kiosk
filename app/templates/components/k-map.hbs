@@ -23,11 +23,11 @@
   <section class="articles">
     {{#each points as |point index|}}
       <article class="animated fadeInRight" style="animation-delay: 0.{{index}}s">
-        {{#link-to 'news.article' 1}}
+        {{#link-to 'news.article' 1 }}
           <h2>{{ point.name }}</h2>
         {{/link-to}}
         <p>{{ point.info }}</p>
-        <h3><a href={{point.websiteUrl}}>{{point.websiteUrl}}</a></h3>
+        <h3><a href={{point.websiteUrl}} class="link">{{point.websiteUrl}}</a></h3>
         <h3>{{ point.address }} {{ point.city }}, {{ point.state }} {{ point.zip }} | {{point.phone}}</h3>
 
         <button class='green small'>Send me this</button>
