@@ -1,6 +1,8 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,700,800);
 @import 'animate';
 
+$info-width: 1500px;
+
 *, *:before, *:after {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -14,7 +16,7 @@
 
 html, body {
   font-size: 16px;
-  background-color: #F9F9FE;
+  background-color: #f1f1f1;
 }
 
 body > .ember-view {
@@ -24,10 +26,31 @@ body > .ember-view {
   padding-bottom: 80px;
 }
 
+
+h1 {
+  font-size: 2em;
+  color: #3A3E3E;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 1.7em;
+  color: #5D5D5D;
+  font-weight: 400;
+}
+
+
 .scaffolding {
-  max-width: 1500px;
+  max-width: $info-width;
   width: 100%;
   margin: 10px auto;
+  overflow: hidden;
+
+  @media screen and (max-width: $info-width) {
+    max-width: 960px;
+    float: none;
+  }
 }
 
 .scaffolding.small {
@@ -93,46 +116,151 @@ footer {
   padding-top: 50px;
 }
 
-.card {
-  background-color: #FFF;
-  box-shadow: 0 1px 1px 0 #EBEDF2;
-  padding: 20px;
-  margin-bottom : 20px;
-  overflow: hidden;
-
-  h1 {
-    font-size: 2em;
-    color: #3A3E3E;
-    font-weight: 400;
-  }
-
-  h2 {
-    font-size: 1.7em;
-    color: #5D5D5D;
-    font-weight: 400;
-  }
-
-  &.news {
-    > h2 {
-      text-align: left;
+section {
+  &.map {
+    .categories, .articles {
+      width: 100%;
+      float:left;
       margin-bottom: 20px;
     }
 
-    .articles {
+    #map {
+      background-color: #CCC;
+      width: 100%;
       height: 512px;
+      margin-bottom: 20px;
+    }
+
+    .buttons {
+      margin-bottom: 20px;
+      display: inline-block;
+    }
+
+    .articles article {
+      background-color: #FFF;
+      box-shadow: 0 1px 1px 0 #EBEDF2;
+      padding: 20px;
+      margin-bottom: 20px;
+
+      button {
+        float: right;
+        clear: none;
+      }
+    }
+
+    @media all and (min-width: $info-width) {
+      position: absolute;
+      width: $info-width;
+
+      .categories {
+        position: fixed;
+        z-index: 1;
+      }
+
+      .articles, .categories {
+        max-width: 730px;
+      }
+
+      .articles {
+        margin-bottom: 50px;
+        float: right;
+      }
+    }
+
+    @media all and (max-width: $info-width) {
+      .articles, .categories {
+        max-width: 100%;
+      }
     }
   }
 
-  .articles {
-    overflow-y: scroll;
-    border-top: 1px solid #DDD;
 
-    article {
-      border-left: 3px solid #888;
+  &.news {
+    .selected, .videos {
+      width: 100%;
+      float:left;
+      margin-bottom: 20px;
+    }
+
+    $max-h: 780px;
+
+    nav {
+      margin-bottom: 20px;
       float: left;
       width: 100%;
-      padding: 5px;
-      margin-top: 4px;
+    }
+
+    .videos article {
+      background-color: #FFF;
+      box-shadow: 0 1px 1px 0 #EBEDF2;
+      padding: 20px;
+      margin-bottom: 20px;
+      cursor: pointer;
+
+      button {
+        float: right;
+        clear: none;
+      }
+    }
+
+    .selected {
+      background: #DDD;
+      height: $max-h;
+      display: flex;
+      transition: background-color 1s;
+
+      h1 {
+        text-align: center;
+        align-self: center;
+        width: 100%;
+      }
+
+      .wrapper {
+        width: 100%;
+        align-self: center;
+      }
+
+      &.black {
+        background: #000;
+      }
+    }
+
+    @media all and (min-width: $info-width) {
+      width: $info-width;
+
+      .videos {
+        max-width: 25%;
+        height: $max-h;
+        overflow-y: scroll;
+        padding: 0px 10px;
+        float: right;
+      }
+
+      .selected {
+        max-width: 75%;
+      }
+    }
+
+    @media all and (max-width: $info-width) {
+      .videos, .categories {
+        max-width: 100%;
+      }
+
+      .videos {
+        article {
+          max-width: 30%;
+          margin: 20px 1.66666667%;
+        }
+      }
+    }
+  }
+  .articles {
+    margin-bottom: 20px;
+    article {
+      float: left;
+      width: 100%;
+      padding: 15px;
+      margin-bottom: 5px;
       background: #FEFEFE;
       text-align: left;
 
@@ -165,11 +293,12 @@ footer {
       }
 
       img {
-        width: 100px;
-        height: 100px;
+        width: 100%;
+        height: auto;
         object-fit: contain;
         display: block;
-        float: left
+        float: left;
+        margin-bottom: 10px;
       }
 
       button {
@@ -179,72 +308,58 @@ footer {
       }
     }
   }
+}
 
-  &.browse {
-    h2 {
-      margin-bottom: 15px;
+.youtube {
+  position: relative;
+  /* (9 / 16 * 100) */
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  margin-bottom: 10px;
+
+  iframe,
+  object,
+  embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.card {
+  background-color: #FFF;
+  box-shadow: 0 1px 1px 0 #EBEDF2;
+  padding: 20px;
+  margin-bottom : 20px;
+  overflow: hidden;
+
+  h1 {
+    margin-bottom : 20px;
+  }
+
+  &.news {
+    > h2 {
+      text-align: left;
+      margin-bottom: 20px;
     }
 
-    a.start {
-      width: 100%;
-      max-width: 400px;
-      text-align: center;
-      text-decoration: none;
-      border-radius: 2px;
-      height: 64px;
-      display: block;
-      font-size: 1.9em;
-      margin: 20px auto;
-      line-height: 64px;
-      color: #fff;
-      font-weight: 400;
-      background-color: #22C3FF;
-      box-shadow: inset 0 1px #3dcaff, 0px 5px #0A96CC, 0 3px 5px rgba(0, 0, 0, 0.3);
-      transition: background-color .25s;
-
-      &:active {
-        box-shadow: none;
-        position: relative;
-        top: 5px;
-      }
-
-      &:hover {
-        background-color: #069FF5;
+    .articles {
+      height: 512px;
+      overflow-y: scroll;
+      border-top: 1px solid #DDD;
+  
+      article {
+        border-left: 3px solid #888;
       }
     }
   }
 
-  &.map {
-    #map {
-      width: 100%;
-      height: 512px;
-      background-color: #CCC;
-      max-width: 725px;
-      float:left;
-    }
-
-    button {
-      padding: 8px;
-      letter-spacing: 1px;
-      font-size: 13px;
-      min-width: 110px;
-      margin: 0px 5px 10px 0px;
-      text-shadow: none;
-      font-weight: 600;
-    }
-
-    .categories {
-      padding: 15px 0px 25px 0px;
-      width: 100%;
-      text-align: center;
-    }
-
-    .articles {
-      width: 100%;
-      margin-bottom: 10px;
-      max-width: 725px;      
-      height: 512px;
-      float:left;
+  &.browse {
+    h2 {
+      margin-bottom: 15px;
     }
   }
 
@@ -259,11 +374,35 @@ button, .button {
   text-align: center;
   text-decoration: none;
   color: #fff;
-  background-color: #00EF73;
-  box-shadow: inset 0 1px #70F98F, 0px 5px #0BB149, 0 3px 5px rgba(0, 0, 0, 0.3);
   transition: background-color .25s;
   text-shadow: 0px 1px rgba(0, 0, 0, 0.47);
   cursor: pointer;
+  display: block;
+  border-radius: 2px;
+
+  &.blue {
+    box-shadow: inset 0 1px #3dcaff, 0px 5px #0A96CC, 0 3px 5px rgba(0, 0, 0, 0.3);
+    background-color: #22C3FF;
+    &:hover {
+      background-color: #069FF5;
+    }
+  }
+
+  &.green {
+    box-shadow: inset 0 1px #70F98F, 0px 5px #0BB149, 0 3px 5px rgba(0, 0, 0, 0.3);
+    background-color: #00EF73;
+    &:hover {
+      background-color: #10CA69;
+    }
+  }
+
+  &.red {
+    box-shadow: inset 0 1px #ff6363, 0px 5px #d60f0f, 0 3px 5px rgba(0, 0, 0, 0.3);
+    background-color: #ff3830;
+    &:hover {
+      background-color: #ec0000;
+    }
+  }
 
   &:active {
     box-shadow: none;
@@ -275,6 +414,32 @@ button, .button {
     background-color: #10CA69;
     text-shadow: 0px 1px rgba(0, 0, 0, 0.6);
   }
+
+  &.large {
+    width: 100%;
+    max-width: 400px;
+    height: 64px;
+
+    margin: 20px auto;
+
+    line-height: 64px;
+    font-size: 1.9em;
+    font-weight: 400;
+  }
+
+  &.small {
+    float: left;
+    margin-right: 10px;
+    padding: 8px;
+    letter-spacing: 1px;
+
+    font-size: 13px;
+    min-width: 100px;
+    margin: 0px 5px 10px 0px;
+    text-shadow: none;
+    font-weight: 600;
+  }
+
 }
 
 .bubble {

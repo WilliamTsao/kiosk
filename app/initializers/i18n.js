@@ -1,6 +1,7 @@
 export function initialize(app) {
   app.inject('component', 'i18n', 'service:i18n');
   app.inject('controller', 'i18n', 'service:i18n');
+  app.inject('view', 'i18n', 'service:i18n');
 
   var owner = app.__container__.owner;
 
