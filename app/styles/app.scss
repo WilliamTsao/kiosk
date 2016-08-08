@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,700,800);
 @import 'animate';
 
-$info-width: 1500px;
+$info-width: 1200px;
 
 *, *:before, *:after {
   -moz-box-sizing: border-box;
@@ -52,17 +52,24 @@ h2 {
   }
 }
 
+main {
+  padding-top: 90px;
+}
+
 .scaffolding.small {
   max-width: 560px;
 }
 
 footer {
   .brand {
-    float: right;
+    width: 500px;
+    margin: 0px auto;
+    display: block;
+    overflow: hidden;
+  }
 
-    h2 {
-      float: right;
-    }
+  nav {
+    margin-top: -40px;
   }
 
   img {
@@ -82,14 +89,14 @@ footer {
   }
 
   nav {
-    float: left;
+    float: right;
   }
 
   background-color: #FFF;
   box-shadow: 0 -1px 1px 0 #EBEDF2;
   overflow: hidden;
   position: fixed;
-  bottom: 0;
+  top: 0;
   width: 100%;
   padding: 20px;
   color: #333;
@@ -112,7 +119,20 @@ footer {
 
 #index {
   text-align: center;
-  padding-top: 50px;
+
+  @media all and (min-width: $info-width) {
+
+    .sponsors .card {
+      width: ($info-width  / 3) - 13.3333 ;
+      clear: none;
+      float:left;
+      display:inline;
+
+      &:nth-child(2) {
+        margin: 0px 20px;
+      } 
+    }
+  }
 }
 
 section {
@@ -159,10 +179,11 @@ section {
       .categories {
         position: fixed;
         z-index: 1;
+        margin-left: -20px;
       }
 
       .articles, .categories {
-        max-width: 730px;
+        max-width: $info-width / 2;
       }
 
       .articles {
