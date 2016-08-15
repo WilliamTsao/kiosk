@@ -13,15 +13,11 @@ export default {
   },
   
   "you_selected": "You are browsing in English",
-  "news_header": "Local News",
+  "news_header": "New in Hub City",
+  "map_header": "Search New Brunswick",
 
-  "browse_header": "Want to browse the internet?",
+  "browse_header": "Use the Internet",
   "browse_subtitle": "Take a quick quiz and start browsing for free",
-  "browse_start": "Start Browsing",
+  "browse_start": "Start Browsing"
 
-  "map_header": "Help me find...",
-
-  "food": "Food",
-  "bars": "Bars",
-  "cats": "Cats"
 };

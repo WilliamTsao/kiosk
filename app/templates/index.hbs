@@ -2,15 +2,14 @@
   {{#if i18n.isSet}}
     <section class="card browse animated fadeInRight">
       <h1>{{t "browse_header"}}</h1>
-      <h2>{{t "browse_subtitle"}}</h2>
+      {{!-- <h2>{{t "browse_subtitle"}}</h2> --}}
       <a href="http://google.com" class='button blue large'>{{t "browse_start"}}</a>
     </section>
 
     <section class="card select animated fadeInLeft">
       <h1>Other services</h1>
-      {{#link-to 'map.index' class='button green large' }}Help me find...{{/link-to}}
-      {{#link-to 'news.index' class='button red large' }}What's new{{/link-to}}
-
+      {{#link-to 'map.index' class='button green large' }}{{t 'map_header'}}{{/link-to}}
+      {{#link-to 'news.index' class='button red large' }}{{t 'news_header'}}{{/link-to}}
     </section>
   {{else}}
     {{k-language-picker}}

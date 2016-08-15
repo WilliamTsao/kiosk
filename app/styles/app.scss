@@ -60,36 +60,37 @@ main {
   max-width: 560px;
 }
 
-footer {
-  .brand {
-    width: 500px;
+header {
+  .middle {
+    width: 100%;
     margin: 0px auto;
-    display: block;
+    display: flex;
     overflow: hidden;
-  }
+    text-align: center;
 
-  nav {
-    margin-top: -40px;
+    .logo {
+      white-space: nowrap;
+      margin: 0px auto;
+    }
   }
 
   img {
     width: 40px;
-    float: left;
-    height: auto;
+    height: 40px;
     margin-right: 10px;
+    float: left;
   }
 
   h2 {
     font-weight: 600;
     font-size: 16px;
     line-height: 35px;
-
     text-align: left;
     color: #555;
   }
 
   nav {
-    float: right;
+    display: flex;
   }
 
   background-color: #FFF;
@@ -100,6 +101,7 @@ footer {
   width: 100%;
   padding: 20px;
   color: #333;
+  display: flex;
 }
 
 @mixin bubble( $diameter ) {
@@ -170,6 +172,10 @@ section {
         color: #0093ff;
         white-space: nowrap;
       }
+    }
+
+    input {
+      margin-bottom: 30px;
     }
 
     @media all and (min-width: $info-width) {
@@ -451,7 +457,7 @@ button, .button {
     margin: 20px auto;
 
     line-height: 64px;
-    font-size: 1.9em;
+    font-size: 1.6em;
     font-weight: 400;
   }
 
@@ -485,4 +491,14 @@ button, .button {
     background: url(https://cdn1.iconfinder.com/data/icons/european-country-flags/83/france-512.png);
     background-size: 150px;
   }
+}
+
+
+input[type=text] {
+  height: 40px;
+  border: 1px solid #BBB;
+  padding-left: 15px;
+  line-height: 40px;
+  width: 100%;
+  float: left;
 }

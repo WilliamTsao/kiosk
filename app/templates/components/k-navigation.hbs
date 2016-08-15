@@ -1,7 +1,10 @@
-<footer>
+<header>
   {{#link-to 'index' class='small red button'}}&larr; Go Back{{/link-to}}
-  <div class="brand">
-    <img src="http://innovatenb.org/wp-content/uploads/2015/09/linkedinlogo1.png"> <h2>New Brunswick Office of Innovation</h2>
+  <div class="middle">
+    <span class="logo">
+      <img src="http://innovatenb.org/wp-content/uploads/2015/09/linkedinlogo1.png">
+      <h2>New Brunswick Office of Innovation</h2>
+    </span>
   </div>
 
   <nav>
@@ -9,4 +12,4 @@
       <a {{action 'set_language' l}} class="language small blue button" href="">{{get i18n.names l }}</a>
     {{/each}}
   </nav>
-</footer>
+</header>

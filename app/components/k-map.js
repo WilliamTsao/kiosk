@@ -3,6 +3,42 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   //["All Categories","Be Well::Children & Youth","Be Well::Adults","Feel Well::Adults","Feel Well::Children & Youth","Feel Well::Seniors","Be Well::Seniors","Eat Well::Children & Youth","Eat Well::Adults","Eat Well::Seniors","Move Well::Adults","Be Safe::Home Services","Move Well::Children & Youth","Move Well::Seniors","Events","Be Safe::Domestic Violence","Uncategorized"],
   categories: ["All", "Services", "Health & Care", "Education", "Food"],
+  num: 5,
+
+  list: function() {
+    var query = this.get('query');
+    var list = this.get('points');
+
+    if (query && query.length > 2) {
+      list = list.filter(function(v) {
+        return (v.info.match(new RegExp(query, 'i')));
+      });
+    }
+
+    this.set('loading', false);
+    this.set('results', list.length);
+    return list.slice(0, this.get('num'));
+  }.property('query', 'points', 'num'),
+
+  more_exist: function() {
+    return (this.get('num') < this.get('results'))
+  }.property('num', 'results'),
+
+  on_text: function() {
+    var self = this;
+    clearTimeout(this.get('timeout') || 10000000000);
+    this.set('timeout', setTimeout(function() {
+      self.set('loading', true);
+      self.set('query', self.get('search_by'));
+      self.set('num', 5);
+    }, 100));
+  }.observes('search_by'),
+
+  actions: {
+    more() {
+      this.set('num', this.get('num') + 5);
+    }
+  }
 });
 
 /* USED TO PARSE CATEGORIES */

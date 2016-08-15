@@ -13,7 +13,7 @@ export default Ember.Route.extend({
    return Ember.RSVP.hash({
       datapoints: Ember.$.get('./data.json').then(function(data) {
         return data.filter(function(item) {
-          return item.categories.includes(params.filter || 'All');
+          return ( params.filter ) ? item.categories.includes(params.filter) : true;
         });
       })
     });
