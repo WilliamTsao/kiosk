@@ -17,11 +17,15 @@ export default Ember.Component.extend({
 
     this.set('loading', false);
     this.set('results', list.length);
-    return list.slice(0, this.get('num'));
+    return list;
   }.property('query', 'points', 'num'),
 
+  list_restricted: function() {
+    return this.get('list').slice(0, this.get('num'));
+  }.property('list'),
+
   more_exist: function() {
-    return (this.get('num') < this.get('results'))
+    return (this.get('num') < this.get('results'));
   }.property('num', 'results'),
 
   on_text: function() {
