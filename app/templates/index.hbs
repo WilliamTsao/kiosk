@@ -9,8 +9,13 @@
     <section class="card select animated fadeInLeft">
       <h1>Other services</h1>
       {{#link-to 'map.index' class='button green large' }}{{t 'map_header'}}{{/link-to}}
+    </section>
+
+    <section class="card select animated fadeInLeft">
+      <h1>Local News</h1>
       {{#link-to 'news.index' class='button red large' }}{{t 'news_header'}}{{/link-to}}
     </section>
+
   {{else}}
     {{k-language-picker}}
   {{/if}}
