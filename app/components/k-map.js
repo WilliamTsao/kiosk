@@ -11,7 +11,7 @@ export default Ember.Component.extend({
 
     if (query && query.length > 2) {
       list = list.filter(function(v) {
-        return (v.info.match(new RegExp(query, 'i')));
+        return (v.description.match(new RegExp(query, 'i')));
       });
     }
 

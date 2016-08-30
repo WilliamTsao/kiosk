@@ -166,9 +166,9 @@ section {
       padding: 20px;
       margin-bottom: 20px;
 
-      button {
-        float: right;
-        clear: none;
+      .button {
+        clear: left;
+        margin-top: 15px;
       }
 
       .link {
@@ -400,6 +400,98 @@ section {
     }
   }
 
+  &.send {
+    #map {
+      width: 256px;
+      height: 256px;
+      float: left;
+      margin-right: 20px;
+    }
+
+    #directions {
+      overflow: hidden;
+      margin: 15px 0px 15px 0px;
+      padding: 5px 0px 15px 0px;
+
+      border-top: 1px solid #DDD; 
+      h3 {
+        font-weight: 600;
+      }
+
+      p {
+        padding-left: 5px;
+      }
+    }
+
+    .link {
+      color: #0093ff;
+      white-space: nowrap;
+      margin-bottom: 10px;
+    }
+
+    h4 {
+      font-size: 17px;
+      font-weight: 300;
+    }
+
+    input {
+      width: 250px;
+    }
+
+    #actions {
+      width: 100%;
+      text-align: center;
+      padding-bottom: 20px;
+      overflow: hidden;
+
+      $radius: 4px;
+
+      button {
+        margin: 0;
+        box-shadow: none;
+        border: 1px solid #333;
+        background: #FFF;
+        color: #333;
+        border-radius: 0;
+        display: inline;
+
+        &:first-of-type {
+          border-radius: $radius 0px 0px $radius;
+        }
+
+        &:last-of-type {
+          border-radius: 0px $radius $radius 0px;
+        }
+
+        &:not(:first-of-type):not(:last-of-type) {
+          border-left: none;
+          border-right: none;
+        }
+
+        &.selected {
+          background-color: #DDD;
+        }
+      }
+    }
+
+    .snailmail {
+      label, input {
+        float: left;
+        clear: left;
+      }
+
+      input {
+        margin-bottom: 15px;
+      }
+    }
+
+    button#send {
+      margin-top: 10px;
+      float: left;
+      clear: left;
+    }
+  }
+
   &.language {
     h1 {
       margin-bottom: 20px;
@@ -428,6 +520,7 @@ button, .button {
   &.green {
     box-shadow: inset 0 1px #70F98F, 0px 5px #0BB149, 0 3px 5px rgba(0, 0, 0, 0.3);
     background-color: #00EF73;
+    color: #FFF;
     &:hover {
       background-color: #10CA69;
     }

@@ -28,7 +28,7 @@ export function categoryColor(params/*, hash*/) {
     "Uncategorized": "#111111"
   };
 
-  var list = params[0].categories.split(';');
+  var list = params[0].tags;
   return colors[list[list.length - 1]];
 }
 

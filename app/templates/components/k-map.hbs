@@ -13,7 +13,7 @@
 
     {{#mapbox-map mapId='mapbox.streets' divId="map" center=(mapbox-coords 40.4939069 -74.4456473) zoom=13 as |map|}}
       {{#each list as |point|}}
-        {{mapbox-marker map=map color=(category-color point) popup-title=point.name url=point.websiteUrl symbol='star' coordinates=(mapbox-coords point.latitude point.longitude)}}
+        {{mapbox-marker map=map color=(category-color point) popup-title=point.name url=point.url symbol='star' coordinates=(mapbox-coords point.location.latitude point.location.longitude)}}
       {{/each}}
 
     {{/mapbox-map}}
@@ -27,11 +27,11 @@
         <article class="animated fadeInRight" style="animation-delay: 0.{{index}}s">
           {{!-- #link-to 'news.article' 1 --}}
           <h2>{{ point.name }}</h2>
-          <p>{{ point.info }}</p>
-          <h3><a href={{point.websiteUrl}} class="link">{{point.websiteUrl}}</a></h3>
-          <h3>{{ point.address }} {{ point.city }}, {{ point.state }} {{ point.zip }} | {{point.phone}}</h3>
+          <p>{{ point.description }}</p>
+          <h3><a href={{point.url}} class="link">{{point.url}}</a></h3>
+          <h3>{{ point.address.street }} {{ point.address.city }}, {{ point.address.state }} {{ point.address.zip }} | {{point.phone}}</h3>
 
-          <button class='green small'>Send me this</button>
+          {{#link-to 'send' point.id class='small green button'}}Send me this{{/link-to}}
         </article>
       {{else}}
         <article>

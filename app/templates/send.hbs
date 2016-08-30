@@ -1,0 +1,58 @@
+<section class="card send">
+
+  <div id="info">
+    {{#mapbox-map mapId='mapbox.streets' divId="map" center=(mapbox-coords model.location.latitude model.location.longitude) zoom=13 as |map|}}
+      {{mapbox-marker map=map color='#FF0000' popup-title=model.name url=model.websiteUrl symbol='star' coordinates=(mapbox-coords model.location.latitude model.location.longitude)}}
+    {{/mapbox-map}}
+
+    <h2>{{model.name}}</h2>
+    <h4>{{ model.address.street }} {{ model.address.city }}, {{ model.address.state }} {{ model.address.zip }} (<a href="http://www.google.com/maps/place/{{model.location.latitude}},{{model.location.longitude}}">Google Maps</a>) | {{model.phone}}</h4>
+    <a href={{model.url}} class="link"><h4>{{model.url}}</h4></a>
+
+    <p>{{{model.info}}}</p>
+  </div>
+
+  <div id="directions">
+    <h3>Directions from here</h3>
+    <p>
+      Step 1<br/>
+      Step 2<br/>
+      Step 3<br/>
+      Step 4<br/>
+    </p>
+  </div>
+  {{!--model.directions--}}
+</section>
+
+<section class="card send">
+  <div id="actions">
+    <button class="small {{if is_medium_text 'selected'}}" {{action 'set_medium' 'text'}}>Send me via text</button><button class="small {{if is_medium_email 'selected'}}" {{action 'set_medium' 'email'}}>Show me via email</button><button class="small {{if is_medium_mail 'selected'}}" {{action 'set_medium' 'mail'}}>Mail me this</button>
+  </div>
+
+  {{#if is_medium_text}}
+    <label>Phone number</label><br/>
+    {{input value=phone placeholder='+1900-XXX-XXXX'}}
+  {{/if}}
+
+  {{#if is_medium_email}}
+    <label>Email address</label><br/>
+    {{input value=email placeholder='user@site.com'}}
+  {{/if}}
+
+  {{#if is_medium_mail}}
+  <div class="snailmail">
+    <label>Street</label>
+    {{input value=street placeholder='5 Main St'}}
+    <label>City</label>
+    {{input value=city placeholder='New Brunswick'}}
+    <label>State</label>
+    {{input value=state placeholder='NJ'}}
+    <label>Zip</label>
+    {{input value=zip placeholder='08591'}}
+  </div>
+  {{/if}}
+
+  {{#unless is_medium_null }}
+    <button {{action 'send'}} class="small blue button" id="send">Send</button>
+  {{/unless}}
+</section>
