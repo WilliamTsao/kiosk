@@ -31,7 +31,7 @@ export default Ember.Controller.extend({
         break;
       }
 
-      $.get(`http://localhost:3000/send/${medium}/${this.get('model.id')}?to=${to}`).then(function() {
+      $.get(`http://api.innovatenb.org/send/${medium}/${this.get('model.id')}?to=${to}`).then(function() {
         this.set('loading', 'sent');
       });
     }
