@@ -1,6 +1,15 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+
+  queryParams: {   
+    filter: {   
+      refreshModel: true,   
+      replace: true,    
+      as: 'filter'    
+    }     
+  },
+
   model(params) {
    return Ember.RSVP.hash({
       datapoints: Ember.$.get('http://api.innovatenb.org/entities').then(function(data) {
@@ -9,5 +18,5 @@ export default Ember.Route.extend({
         });
       })
     });
-  },
+  }
 });

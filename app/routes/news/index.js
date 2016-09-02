@@ -6,11 +6,11 @@ export default Ember.Route.extend({
     return {
       news: [],
       videos: [
-        'I2jmxQ3_zGg',
-        '0KW4oZk-MMY',
-        'd42xevS6Lqk',
-        'CWF8R9Ta2eM',
-        'oXYMG5LOQ2Q'
+        { id:'I2jmxQ3_zGg', title: 'Dr. Dan Su and Mario Vargas (PRAB) on Prostate Cancer and Screenings'},
+        { id:'0KW4oZk-MMY', title: 'Training Run: Tour of New Brunswick NJ'},
+        { id:'d42xevS6Lqk', title: 'New Brunswick: 2050 - A New Vision'},
+        { id:'CWF8R9Ta2eM', title: 'Man vs Food S02E19 New Brunswick, NJ'},
+        { id:'oXYMG5LOQ2Q', title: 'Rutgers University Anthem Video for New Students 2015'}
       ]
     };
   }

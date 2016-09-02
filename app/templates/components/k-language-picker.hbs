@@ -2,6 +2,6 @@
   <h1>Select a language</h1>
 
   {{#each i18n.locales as |l| }}
-    <a {{action 'set_language' l}} class="bubble language" href="">{{get i18n.names l }}</a>
+    {{#if (get i18n.names l)}}<a {{action 'set_language' l}} class="bubble language" href="">{{get i18n.names l }}</a>{{/if}}
   {{/each}}
 </article>
