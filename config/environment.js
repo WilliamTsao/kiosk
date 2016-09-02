@@ -9,7 +9,7 @@ module.exports = function(environment) {
     modulePrefix: 'kiosk',
     environment: environment,
     baseURL: '/',
-    locationType: 'auto',
+    locationType: 'hash',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -23,7 +23,7 @@ module.exports = function(environment) {
     },
 
     mapbox: {
-      accessToken: 'pk.eyJ1Ijoibmlja3NhaGxlciIsImEiOiJjaW4zcWYxMGowYzJ5dmxtNGF5eHNuMmh5In0.bIkQOshLMbzgIgfWVd6Ixw',
+      accessToken: 'pk.eyJ1Ijoibmlja3NhaGxlciIsImEiOiJjaW4zcWYxMGowYzJ5dmxtNGF5eHNuMmh5In0.bIkQOshLMbzgIgfWVd6Ixw'
     }
   };
 
