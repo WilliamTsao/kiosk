@@ -18,6 +18,8 @@ export function initialize(app) {
   owner.lookup('service:i18n').set('name', function( locale ) {
     return this.get('names')[locale];
   });
+
+  L.mapbox.config.FORCE_HTTPS = true;
 }
 
 export default {
