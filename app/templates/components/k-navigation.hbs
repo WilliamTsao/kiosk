@@ -1,15 +1,16 @@
 <header>
-  {{#link-to 'index' class='small red button'}}&larr; Go Back{{/link-to}}
+  <button class="small red" {{action 'back'}}>&larr; {{t 'back'}}</button>
+  {{#link-to 'index' class='small red button'}}{{t "home"}}{{/link-to}}
   <div class="middle">
     <span class="logo">
-      <img src="http://innovatenb.org/wp-content/uploads/2015/09/linkedinlogo1.png">
+      <img src="./logo.png">
       <h2>New Brunswick Office of Innovation</h2>
     </span>
   </div>
 
   <nav>
     {{#each i18n.locales as |l| }}
-      <a {{action 'set_language' l}} class="language small blue button" href="">{{get i18n.names l }}</a>
+      {{#if (get i18n.names l)}}<a {{action 'set_language' l}} class="language small blue button" href="">{{get i18n.names l }}</a>{{/if}}
     {{/each}}
   </nav>
 </header>

@@ -17,6 +17,7 @@ Router.map(function() {
   });
 
   this.route('send', { path: '/send/:id' } );
+  this.route('browse', {path: '/browse'});
 });
 
 export default Router;
