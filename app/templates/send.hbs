@@ -6,7 +6,7 @@
     {{/mapbox-map}}
 
     {{content-editable value=model.name placeholder="Name" type="text" tagName="h2" disabled=not_editing }}
-
+    
     <h4>
       {{content-editable value=model.address.street placeholder="Street" type="text" tagName="span" disabled=not_editing}}
       {{content-editable value=model.address.city placeholder="City" type="text" tagName="span" disabled=not_editing}}, 
@@ -43,7 +43,10 @@
 
 
   <div id="actions">
-    <button class="small left {{if editing 'blue' 'green'}}" {{action (if editing 'save' 'edit')}}>{{t (if editing 'save' 'edit')}}</button>
+
+    {{#if application.admin }}
+      <button class="small left {{if editing 'blue' 'green'}}" {{action (if editing 'save' 'edit')}}>{{t (if editing 'save' 'edit')}}</button>
+    {{/if}}
     <button class="small {{if is_medium_mail 'red' 'blue'}}" {{action 'set_medium' 'mail'}}>{{t 'send_via.mail'}}</button>
     <button class="small {{if is_medium_email 'red' 'blue'}}" {{action 'set_medium' 'email'}}>{{t 'send_via.email'}}</button>
     <button class="small {{if is_medium_text 'red' 'blue'}}" {{action 'set_medium' 'text'}}>{{t 'send_via.text'}}</button>

@@ -2,15 +2,24 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   watch_url: function() {
-    var self = this;
-    Ember.run.debounce(this, function() {
-      self.set('processed_url', self.get('url'));
-    }, 400);
+    this.set('displayed_url', this.get('url'));
   }.observes('url'),
 
-  // watch_processed_url: function() {
-  //   this.set('url', this.get('processed_url'));
-  // }.observes('processed_url'),
+  url: 'https://google.com',
+  displayed_url: 'https://google.com',
 
-  processed_url: 'https://google.com'
+  actions: {
+    back() {
+      document.getElementsByTagName('webview')[0].goBack();
+    },
+
+    forward() {
+      console.log(document.getElementsByTagName('webview')[0])
+      document.getElementsByTagName('webview')[0].goForward()
+    },
+
+    go() {
+      this.set('url', this.get('displayed_url'));
+    }
+  }
 });

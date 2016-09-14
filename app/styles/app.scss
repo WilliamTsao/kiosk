@@ -390,6 +390,11 @@ section#browser {
     height: 100%;
     width: 100%;
   }
+
+  .bar {
+    display: flex;
+    padding-left: 5px;
+  }
 }
 
 .card {
@@ -635,6 +640,12 @@ button, .button {
     font-weight: 600;
   }
 
+  &.notext {
+    min-width: 0;
+    float: left;
+    display: inline-block;
+    margin-bottom: 0;
+  }
 }
 
 .bubble {

@@ -1,2 +1,10 @@
-{{input value=url placeholder='http://'}}
-{{k-webview src=url}}
+<div class="bar">
+  <button class="small red notext" {{action 'back'}} title={{t 'back'}}>&larr;</button>
+  <button class="small red notext" {{action 'forward'}} title={{t 'forward'}}>&rarr;</button>
+
+  {{input value=displayed_url placeholder='http://' insert-newline='go'}}
+
+  <button class="small red notext" {{action 'go'}} title={{t 'back'}}>Go</button>
+</div>
+
+{{k-webview url=url}}
