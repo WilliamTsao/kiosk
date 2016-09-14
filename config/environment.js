@@ -9,7 +9,7 @@ module.exports = function(environment) {
     modulePrefix: 'kiosk',
     environment: environment,
     baseURL: '/',
-    locationType: 'hash',
+    locationType: process.env.EMBER_CLI_ELECTRON ? 'hash' : 'auto',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -36,9 +36,6 @@ module.exports = function(environment) {
   }
 
   if (environment === 'test') {
-    // Testem prefers this...
-    ENV.baseURL = '/';
-    ENV.locationType = 'none';
 
     // keep test console output quieter
     ENV.APP.LOG_ACTIVE_GENERATION = false;
@@ -48,8 +45,6 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.baseURL = '/kiosk-demo';
-    ENV.locationType = 'auto';
   }
 
   return ENV;

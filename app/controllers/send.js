@@ -1,6 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+  application: Ember.inject.controller('application'),
+
   medium: null,
   is_medium_text: Ember.computed.equal('medium', 'text'),
   is_medium_email: Ember.computed.equal('medium', 'email'),
@@ -58,7 +60,7 @@ export default Ember.Controller.extend({
       this.set('editing', false);
       var x = this.get('model');
       $.ajax({
-        url: `http://api.innovatenb.org/entities/${this.get('model.id')}?token=bacon`,
+        url: `http://api.innovatenb.org/entities/${this.get('model.id')}?token=${this.get('application.admin')}`,
         type: "POST",
         contentType : 'application/json',
         data: JSON.stringify({
