@@ -59,7 +59,7 @@ export default Ember.Controller.extend({
     save() {
       this.set('editing', false);
       var x = this.get('model');
-      $.ajax({
+      Ember.$.ajax({
         url: `http://api.innovatenb.org/entities/${this.get('model.id')}?token=${this.get('application.admin')}`,
         type: "POST",
         contentType : 'application/json',

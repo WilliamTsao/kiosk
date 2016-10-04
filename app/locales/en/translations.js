@@ -14,7 +14,9 @@ export default {
 
   "back": "Go Back",
   "home": "Home",
-  
+
+  "other_services": "Other Services",
+
   "you_selected": "You are browsing in English",
   "news_header": "New in Hub City",
   "map_header": "Search New Brunswick",

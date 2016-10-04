@@ -19,6 +19,8 @@ let mainWindow = null;
 //     autoSubmit: true
 // });
 
+app.commandLine.appendSwitch('--enable-viewport-meta', 'true');
+
 app.on('window-all-closed', function onWindowAllClosed() {
     if (process.platform !== 'darwin') {
         app.quit();

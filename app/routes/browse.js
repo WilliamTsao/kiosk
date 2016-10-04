@@ -6,6 +6,6 @@ export default Ember.Route.extend({
       refreshModel: true,   
       replace: true,    
       as: 'url'    
-    }     
+    }
   }
 });

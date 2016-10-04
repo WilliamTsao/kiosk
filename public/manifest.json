@@ -13,26 +13,22 @@
   },
   "permissions": [
     "webview",
-      "power",
-      "storage",
-      "videoCapture",
-      "geolocation",
-      "pointerLock",
-      "system.display",
-      {  
-         "fileSystem":[  
-            "write",
-            "retainEntries",
-            "directory"
-         ]
-      },
-      "accessibilityFeatures.read",
-      "accessibilityFeatures.modify"
+    "https://a.tiles.mapbox.com/"
   ],
 
   "chrome_url_overrides": {
     "newtab": "index.html"
   },
-   "kiosk_enabled": true,
-   "kiosk_only": false
+
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  },
+
+  "app":{
+    "background": {
+      "scripts": ["background.js"]
+    }
+   },
+
+   "kiosk_enabled": true
 }

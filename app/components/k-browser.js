@@ -14,8 +14,8 @@ export default Ember.Component.extend({
     },
 
     forward() {
-      console.log(document.getElementsByTagName('webview')[0])
-      document.getElementsByTagName('webview')[0].goForward()
+      console.log(document.getElementsByTagName('webview')[0]);
+      document.getElementsByTagName('webview')[0].goForward();
     },
 
     go() {
