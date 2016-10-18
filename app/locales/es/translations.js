@@ -7,7 +7,7 @@ export default {
   "home": "Home",
 
   "other_services": "Otra servicios",
-  
+
   "you_selected": "Navegando en español",
   "news_header": "Noticias locales",
   "map_header": "Buscar New Brunswick",

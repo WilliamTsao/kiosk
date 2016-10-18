@@ -1,33 +1,33 @@
 <section id="index">
   {{#if i18n.isSet}}
-    <section class="card browse animated fadeInDown">
-      <h1>{{t "browse_header"}}</h1>
-      {{#link-to 'browse' (query-params url='https://google.com')  class='button blue large'}}{{t "browse_start"}}{{/link-to}}
-    </section>
+    {{#link-to 'browse' (query-params url='https://google.com') class="tile card browse animated fadeInDown"}}
+      <h1>{{fa-icon "globe" size=3}}</h1>
+      <h2>{{t "browse_header"}}</h2>
+    {{/link-to}}
 
-    <section class="card select animated fadeInDown">
-      <h1>{{t "other_services"}}</h1>
-      {{#link-to 'map.index' class='button green large' }}{{t 'map_header'}}{{/link-to}}
-    </section>
+    {{#link-to 'map.index' class="tile card map animated fadeInDown"}}
+      <h1>{{fa-icon "map" size=3}}</h1>
+      <h2>{{t 'map_header'}}</h2>
+    {{/link-to}}
 
-    <section class="card select animated fadeInDown">
-      <h1>Local News</h1>
-      {{#link-to 'news.index' class='button red large' }}{{t 'news_header'}}{{/link-to}}
-    </section>
+    {{#link-to 'news.index' class="tile card news animated fadeInDown"}}
+      <h1>{{fa-icon "youtube-play" size=3}}</h1>
+      <h2>{{t "news_header"}}</h2>
+    {{/link-to}}
 
   {{else}}
     {{k-language-picker}}
   {{/if}}
 
   <section class="sponsors">
-  <section class="card browse animated fadeInUp">
-    <img width="200px" height="auto" src="https://i.ytimg.com/vi/tntOCGkgt98/maxresdefault.jpg"/>
-  </section>
-  <section class="card browse animated fadeInUp">
-    <h1>Sponsor</h1>
-  </section>
-  <section class="card browse animated fadeInUp">
-    <h1>Sponsor</h1>
-  </section>
+    <section class="card animated fadeInUp">
+      <img src="./sponsor_3.png"/>
+    </section>
+    <section class="card animated fadeInUp">
+      <img src="./sponsor_2.png"/>
+    </section>
+    <section class="card animated fadeInUp">
+      <img src="./sponsor_1.jpg"/>
+    </section>
   </section>
 </section>
