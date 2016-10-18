@@ -10,7 +10,33 @@ Ember.MODEL_FACTORY_INJECTIONS = true;
 App = Ember.Application.extend({
   modulePrefix: config.modulePrefix,
   podModulePrefix: config.podModulePrefix,
-  Resolver
+  Resolver,
+
+  /* ---- Splash Screen ---- */
+  timer: null,
+
+  ready: function () {
+    var self = this;
+
+    var reset = ()=> {
+      // 5 minutes
+      var period = 1000 * 60 * 5;
+      this.timer = setTimeout(this.onTimeout.bind(this), period);
+    }.bind(this);
+
+    reset();
+
+    $('body').on('touchmove touchdown keydown mousedown mousemove', function (){
+      clearTimeout(self.timer);
+      reset();
+    });
+  },
+
+  onTimeout() {
+    this.__container__.lookup('route:application').transitionTo('splash')
+  }
+  /* ---- End Splash Screen ---- */
+
 });
 
 loadInitializers(App, config.modulePrefix);

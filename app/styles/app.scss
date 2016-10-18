@@ -11,7 +11,10 @@ $info-width: 1200px;
   margin: 0px;
   padding: 0px;
   border: 0px;
-  font-family: 'Open Sans', sans-serif;
+}
+
+* {
+    font-family: 'Open Sans', sans-serif;
 
 }
 
@@ -65,6 +68,7 @@ main {
 }
 
 header {
+  z-index: 2;
   .middle {
     width: 100%;
     margin: 0px auto;
@@ -136,16 +140,17 @@ header {
     .card:not(.language) {
       width: (($info-width - 40px) / 3);
       clear: none;
-      float:left;
+      float: left;
       display:inline;
+
       &:nth-child(2), &:nth-child(5) {
         margin: 0px 20px;
       }
-
-      h1 {
-        margin-bottom: 100px;
-      }
     }
+  }
+
+  .sponsors {
+    float: left;
   }
 }
 
@@ -403,16 +408,28 @@ section#browser {
   padding: 20px;
   margin-bottom : 20px;
   overflow: hidden;
+  text-decoration: none;
 
   h1 {
-    margin-bottom : 20px;
+    margin-bottom: 20px;
+  }
+
+  h2 {
+    margin-bottom: 15px;
+  }
+
+  img {
+    max-width: 100%;
+    max-height: 152px;
+    min-height: 152px;
+  }
+
+  &.map {
+    background-color: #36e08b;
   }
 
   &.news {
-    > h2 {
-      text-align: left;
-      margin-bottom: 20px;
-    }
+    background-color: #fe7e15;
 
     .articles {
       height: 512px;
@@ -426,9 +443,7 @@ section#browser {
   }
 
   &.browse {
-    h2 {
-      margin-bottom: 15px;
-    }
+    background-color: #4194fb;
   }
 
   &.send {
@@ -591,6 +606,7 @@ button, .button {
     box-shadow: inset 0 1px #70F98F, 0px 5px #0BB149, 0 3px 5px rgba(0, 0, 0, 0.3);
     background-color: #00EF73;
     color: #FFF;
+
     &:hover {
       background-color: #10CA69;
     }
@@ -673,4 +689,56 @@ input[type=text] {
   line-height: 40px;
   width: 100%;
   float: left;
+}
+
+.splash {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #404250;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .left {
+    padding: 80px;
+    flex: 4;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    box-shadow: 0px 2px 4px 1px #AAA;
+    z-index: 2;
+  }
+
+  .bottom {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 0px 80px;
+    background: #FFF;
+    align-items: center;
+  }
+
+  h1 {
+    color: #FFF;
+    font-size: 80px;
+  }
+
+  h2 {
+    color: #333;
+    font-size: 2.2em;
+    font-weight: 500;
+  }
+}
+
+.tile {
+  display: flex;
+  align-items: center;
+  padding: 40px;
+  h2, h1 {
+    color: #fff;
+  }
 }
