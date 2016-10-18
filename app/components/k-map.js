@@ -8,17 +8,18 @@ export default Ember.Component.extend({
   list: function() {
     var query = this.get('query');
     var list = this.get('points');
+    var tag_filter = this.get('tag_filter');
 
-    if (query && query.length > 2) {
+    if ((query && query.length > 2) || tag_filter) {
       list = list.filter(function(v) {
-        return (v.description.match(new RegExp(query, 'i')));
+        return (query && v.description.match(new RegExp(query, 'i'))) || ( tag_filter && v.tags.join('::').match(new RegExp(tag_filter, 'i')));
       });
     }
 
     this.set('loading', false);
     this.set('results', list.length);
     return list;
-  }.property('query', 'points', 'num'),
+  }.property('query', 'points', 'num', 'tag_filter'),
 
   list_restricted: function() {
     return this.get('list').slice(0, this.get('num'));
@@ -41,6 +42,10 @@ export default Ember.Component.extend({
   actions: {
     more() {
       this.set('num', this.get('num') + 5);
+    },
+
+    set_tag_filter(tag) {
+      this.set('tag_filter', tag);
     }
   }
 });

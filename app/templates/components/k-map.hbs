@@ -5,9 +5,9 @@
     {{input value=search_by placeholder="Search for something"}}
       <div class="buttons">
     {{#each categories as |category|}}
-        {{#link-to (query-params filter=category) class='small blue button' }}
+        <button {{action 'set_tag_filter' category }} class='small blue button'>
           {{category}}
-        {{/link-to}}
+        </button>
       {{/each}} 
     </div>
 
