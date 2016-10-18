@@ -16,6 +16,10 @@ Router.map(function() {
     this.route('location', { path: '/:id' });
   });
 
+  this.route('splash', function() {
+    this.route('index', { path: '/' });
+  });
+
   this.route('send', { path: '/send/:id' } );
   this.route('browse', {path: '/browse'});
 });
