@@ -9,10 +9,10 @@ export default {
   "other_services": "Otra servicios",
 
   "you_selected": "Navegando en español",
-  "news_header": "Noticias locales",
+  "videos_header": "Noticias locales",
   "map_header": "Buscar New Brunswick",
 
-  "browse_header": "Usa el Internet",
+  "browser_header": "Usa el Internet",
   "browse_subtitle": "Take a quick quiz and start browsing for free",
   "browse_start": "Comenzar",
 

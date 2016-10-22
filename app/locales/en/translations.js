@@ -17,10 +17,12 @@ export default {
 
   "other_services": "Other Services",
   "you_selected": "You are browsing in English",
-  "news_header": "New Brunswick TV",
+  
+  "videos_header": "New Brunswick TV",
   "map_header": "Search New Brunswick",
+  "browser_header": "Use the Internet",
+  "events_header": "What's Happening",
 
-  "browse_header": "Use the Internet",
   "browse_subtitle": "Take a quick quiz and start browsing for free",
   "browse_start": "Start Browsing",
 

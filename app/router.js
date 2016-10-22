@@ -7,22 +7,26 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('news', function() {
-    this.route('index', { path: '/' });
+  this.route('videos', function() {
+    this.route('index',{ path: '/' } );
     this.route('article', { path: '/:id' });
   });
 
   this.route('map', function() {
     this.route('index', { path: '/' });
     this.route('location', { path: '/:id' });
+
   });
+
+  this.route('browser', { path: '/browser' });
+  
+  this.route('events');
 
   this.route('splash', function() {
     this.route('index', { path: '/' });
   });
 
-  this.route('send', { path: '/send/:id' } );
-  this.route('browse', {path: '/browse'});
+  this.route('entity', { path: '/entity/:id' } );
 });
 
 export default Router;

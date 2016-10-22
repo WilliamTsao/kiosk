@@ -1,33 +1,9 @@
 <section id="index">
   {{#if i18n.isSet}}
-    {{#link-to 'browse' (query-params url='https://google.com') class="tile card browse animated fadeInDown"}}
-      <h1>{{fa-icon "globe" size=3}}</h1>
-      <h2>{{t "browse_header"}}</h2>
-    {{/link-to}}
-
-    {{#link-to 'map.index' class="tile card map animated fadeInDown"}}
-      <h1>{{fa-icon "map" size=3}}</h1>
-      <h2>{{t 'map_header'}}</h2>
-    {{/link-to}}
-
-    {{#link-to 'news.index' class="tile card news animated fadeInDown"}}
-      <h1>{{fa-icon "youtube-play" size=3}}</h1>
-      <h2>{{t "news_header"}}</h2>
-    {{/link-to}}
-
+    {{#each model.modules as |module|}}
+      {{k-tile "tile" module=module}}
+    {{/each}}
   {{else}}
     {{k-language-picker}}
   {{/if}}
-
-  <section class="sponsors">
-    <section class="card animated fadeInUp">
-      <img src="./sponsor_3.png"/>
-    </section>
-    <section class="card animated fadeInUp">
-      <img src="./sponsor_2.png"/>
-    </section>
-    <section class="card animated fadeInUp">
-      <img src="./sponsor_1.jpg"/>
-    </section>
-  </section>
 </section>
