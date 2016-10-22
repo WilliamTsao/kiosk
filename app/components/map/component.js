@@ -7,7 +7,7 @@ export default Ember.Component.extend({
 
   list: function() {
     var query = this.get('query');
-    var list = this.get('points');
+    var list = this.get('model.points');
     var tag_filter = this.get('tag_filter');
 
     if ((query && query.length > 2) || tag_filter) {
@@ -19,7 +19,7 @@ export default Ember.Component.extend({
     this.set('loading', false);
     this.set('results', list.length);
     return list;
-  }.property('query', 'points', 'num', 'tag_filter'),
+  }.property('query', 'model.points', 'num', 'tag_filter'),
 
   list_restricted: function() {
     return this.get('list').slice(0, this.get('num'));

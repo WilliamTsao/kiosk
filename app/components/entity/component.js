@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
-export default Ember.Controller.extend({
-  application: Ember.inject.controller('application'),
+export default Ember.Component.extend({
+  application: Ember.getOwner(this),
 
   medium: null,
   is_medium_text: Ember.computed.equal('medium', 'text'),

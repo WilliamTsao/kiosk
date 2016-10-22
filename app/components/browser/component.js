@@ -1,12 +1,10 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  watch_url: function() {
-    this.set('displayed_url', this.get('url'));
-  }.observes('url'),
 
-  url: 'https://google.com',
-  displayed_url: 'https://google.com',
+  displayed_url: function() {
+    return  this.get('model.url');
+  }.property('model.url'),
 
   actions: {
     back() {
@@ -19,7 +17,7 @@ export default Ember.Component.extend({
     },
 
     go() {
-      this.set('url', this.get('displayed_url'));
+      this.set('model.url', this.get('displayed_url'));
     }
   }
 });

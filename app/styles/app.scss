@@ -14,8 +14,7 @@ $info-width: 1200px;
 }
 
 * {
-    font-family: 'Open Sans', sans-serif;
-
+  font-family: 'Open Sans', sans-serif;
 }
 
 html, body {
@@ -133,6 +132,13 @@ header {
 }
 
 #index {
+    text-align: center;
+    flex-direction: row;
+    float: left;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    width:100%;
 
   @media all and (min-width: $info-width) {
     text-align: center;
@@ -227,7 +233,7 @@ section {
   }
 
 
-  &.news {
+  &.videos {
     .selected, .videos {
       width: 100%;
       float:left;
@@ -418,34 +424,6 @@ section#browser {
     margin-bottom: 15px;
   }
 
-  img {
-    max-width: 100%;
-    max-height: 152px;
-    min-height: 152px;
-  }
-
-  &.map {
-    background-color: #36e08b;
-  }
-
-  &.news {
-    background-color: #fe7e15;
-
-    .articles {
-      height: 512px;
-      overflow-y: scroll;
-      border-top: 1px solid #DDD;
-  
-      article {
-        border-left: 3px solid #888;
-      }
-    }
-  }
-
-  &.browse {
-    background-color: #4194fb;
-  }
-
   &.send {
     #map {
       width: 256px;
@@ -578,6 +556,7 @@ section#browser {
   }
 
   &.language {
+    margin: 0px auto;
     h1 {
       margin-bottom: 20px;
     }
@@ -738,7 +717,58 @@ input[type=text] {
   display: flex;
   align-items: center;
   padding: 40px;
+  flex-direction: column;
+  flex-grow: 1;
+  flex-basis: 0;
+  margin: 10px;
+  flex: 1 0 350px;
+  align-self: stretch;
+  max-width: 100%;
+  min-height: 350px;
+  justify-content: center;
+  cursor: pointer;
+
+  background-color: #FFF;
+  box-shadow: 0 1px 1px 2px #e8e8e8;
+
   h2, h1 {
     color: #fff;
+  }
+
+  &.map {
+    background-color: #36e08b;
+  }
+
+  &.videos {
+    background-color: #fe7e15;
+
+    .articles {
+      height: 512px;
+      overflow-y: scroll;
+      border-top: 1px solid #DDD;
+  
+      article {
+        border-left: 3px solid #888;
+      }
+    }
+  }
+
+  &.browser {
+    background-color: #4194fb;
+  }
+
+
+  &.events {
+    background-color: #7e2eff;
+  }
+
+  &:active {
+    box-shadow: 0 1px 1px 0 #EBEDF2;
+  }
+
+  img {
+    max-width: 100%;
+    max-height: 152px;
+    min-height: 152px;
   }
 }

@@ -1,7 +1,5 @@
-<article class="animated fadeInUp card language">
-  <h1>Select a language</h1>
+<h1>Select a language</h1>
 
-  {{#each i18n.locales as |l| }}
-    {{#if (get i18n.names l)}}<a {{action 'set_language' l}} class="bubble language" href="">{{get i18n.names l }}</a>{{/if}}
-  {{/each}}
-</article>
+{{#each i18n.locales as |l| }}
+  {{#if (get i18n.names l)}}<a {{action 'set_language' l}} class="bubble language" href="">{{get i18n.names l }}</a>{{/if}}
+{{/each}}

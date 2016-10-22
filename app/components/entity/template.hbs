@@ -20,7 +20,7 @@
       {{content-editable value=model.url placeholder="http://" type="text" tagName="span" disabled=not_editing class="link"}}
     {{else}}
       {{!-- <a href={{model.url}} class="link"><h4>{{model.url}}</h4></a> --}}
-      {{#link-to 'browse' (query-params url=model.url) class="link"}}{{model.url}}{{/link-to}}
+      {{#link-to 'browser' (query-params url=model.url) class="link"}}{{model.url}}{{/link-to}}
     {{/if}}
 
     {{#if editing}}
@@ -62,12 +62,12 @@
     <h1>{{t (concat 'sending_via' '.' medium) }}</h1>
     {{#if is_medium_text}}
       <label>Phone number</label><br/>
-      {{input value=phone placeholder='+1900-XXX-XXXX'}}
+      {{input insert-newline='send' value=phone placeholder='+1900-XXX-XXXX'}}
     {{/if}}
 
     {{#if is_medium_email}}
       <label>Email address</label><br/>
-      {{input value=email placeholder='user@site.com'}}
+      {{input insert-newline='send' value=email placeholder='user@site.com'}}
     {{/if}}
 
     {{#if is_medium_mail}}

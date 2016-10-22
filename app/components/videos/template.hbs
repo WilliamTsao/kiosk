@@ -1,0 +1,28 @@
+<section class="videos">
+  <h1>What's new around New Brunswick</h1>
+
+  <div class="selected {{if selected "black" "grey"}}">
+    {{#if selected }}
+      <div class="wrapper">
+        <div class="youtube">
+          <iframe src="https://www.youtube.com/embed/{{selected}}?autoplay=1&cc_lang_pref={{i18n.locale}}&cc_load_policy=1&rel=0" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+    {{else}}
+      <h1> Select a video to play</h1>
+    {{/if}}
+  </div>
+
+  <section class="articles videos">
+  {{#each model.videos as |video|}}
+    <article {{action 'set_selected' video.id }}>
+      <img src="http://img.youtube.com/vi/{{video.id}}/0.jpg" />
+      <h2>{{ video.title }}</h2>
+
+      <p>{{ video.description}} </p>
+
+      {{!-- <button class='small green button'>Send me this</button>--}}
+    </article>
+  {{/each}}
+  </section>
+</section>

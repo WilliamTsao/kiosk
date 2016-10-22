@@ -1,0 +1,37 @@
+{
+  "name": "Standard Kiosk",
+  "hostname": "kiosk-nboi-.*",
+  "location": {
+    "latitude": "40.5023054",
+    "longitude": "-74.4523943"
+  },
+
+  "modules": [{
+    "link_to": "browser",
+    "icon": "globe",
+    "color": "#FFF"
+  },{
+    "link_to": "map",
+    "icon": "map",
+    "color": "#FFF"
+  },{
+    "link_to": "videos",
+    "icon": "youtube-play",
+    "color": "#FFF"
+  },{
+    "component": "k-sponsor",
+    "properties": {
+      "url": "./sponsor_3.png"
+    }
+  },{
+    "component": "k-sponsor",
+    "properties": {
+      "url": "./sponsor_2.png"
+    }
+  },{
+    "component": "k-sponsor",
+    "properties": {
+      "url": "./sponsor_1.jpg"
+    }
+  }]
+}

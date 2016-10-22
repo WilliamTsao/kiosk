@@ -27,10 +27,10 @@
         {{!-- #link-to 'news.article' 1 --}}
         <h2>{{ point.name }}</h2>
         <p>{{ point.description }}</p>
-        <h3>{{#link-to 'browse' (query-params url=point.url) class="link"}}{{point.url}}{{/link-to}}</h3>
+        <h3>{{#link-to 'browser' (query-params url=point.url) class="link"}}{{point.url}}{{/link-to}}</h3>
         <h3>{{ point.address.street }} {{ point.address.city }}, {{ point.address.state }} {{ point.address.zip }} | {{point.phone}}</h3>
 
-        {{#link-to 'send' point.id class='small green button'}}{{ t 'more_info'}}{{/link-to}}
+        {{#link-to 'entity' point.id class='small green button'}}{{ t 'more_info'}}{{/link-to}}
       </article>
     {{else}}
       <article>

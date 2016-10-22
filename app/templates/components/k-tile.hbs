@@ -1,0 +1,6 @@
+{{#if module.component}}
+  {{component module.component properties=module.properties}}
+{{else}}
+  <h1>{{fa-icon module.icon size=3}}</h1>
+  <h2>{{t (concat module.link_to "_header") }}</h2>
+{{/if}}
