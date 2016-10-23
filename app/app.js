@@ -26,14 +26,14 @@ App = Ember.Application.extend({
 
     reset();
 
-    $('body').on('touchmove touchdown keydown mousedown mousemove', function (){
+    Ember.$('body').on('touchmove touchdown keydown mousedown mousemove', function (){
       clearTimeout(self.timer);
       reset();
     });
   },
 
   onTimeout() {
-    this.__container__.lookup('route:application').transitionTo('splash')
+    this.__container__.lookup('route:application').transitionTo('splash');
   }
   /* ---- End Splash Screen ---- */
 

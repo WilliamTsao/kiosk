@@ -7,6 +7,58 @@ const {app, BrowserWindow, globalShortcut} = electron;
 const dirname              = __dirname || path.resolve(path.dirname());
 const emberAppLocation     = `file://${dirname}/dist/index.html`;
 
+/* TODO MOve this !!!!! */
+try {
+var eddystoneBeacon = require('eddystone-beacon');
+var url = 'http://example.com';
+eddystoneBeacon.advertiseUrl(url);
+} catch(e) {
+
+}
+
+app.commandLine.appendSwitch('enable-web-bluetooth', true);
+
+var io = require('socket.io')(4201);
+
+io.on('connection', function (socket) {
+  console.log('Connection started');
+
+  socket.on('controls', function (data) {
+    socket.broadcast.emit('controls', data);
+  });
+});
+
+var express = require('express')();
+
+express.get('/', function (req, res) {
+    res.send(`
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.5.0/socket.io.min.js"></script>
+<style>
+    button {
+        position: absolute;
+        width: 50%;
+        height: 100%;
+        top: 0;
+        border: 1px solid #DDD;
+    }
+    button:active { background-color #FFF; }
+    .left { left: 0; background-color: #98d4ff; } .right { right: 0;  background-color: #ff9898;}
+</style>
+<script>
+  var socket = io('ws://172.27.131.188:4201/');
+</script>
+<button onclick="socket.emit('controls', { control: 'left' });" class="left">&larr;</button>
+<button onclick="socket.emit('controls', { control: 'right' });" class="right">&rarr;</button>
+`);
+});
+
+express.listen(4203, function () {
+  console.log('Web server serving!');
+});
+
+/* END TODO: MOVE THIS ^^^^^ */
+
 let mainWindow = null;
 
 // Uncomment the lines below to enable Electron's crash reporter
