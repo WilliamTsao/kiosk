@@ -7,6 +7,8 @@ export default Ember.Component.extend({
 
   click() {
     var l = this.get('module.link_to');
-    if (l) this.get('router').transitionTo(l);
+    if (l) {
+      this.get('router').transitionTo(l);
+    }
   }
 });
