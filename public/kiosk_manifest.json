@@ -33,5 +33,10 @@
     "properties": {
       "url": "./sponsor_1.jpg"
     }
-  }]
+  },{
+    "link_to":"emergency-services",
+    "icon":"phone"
+  }
+
+  ]
 }

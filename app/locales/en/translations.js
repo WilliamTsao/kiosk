@@ -22,6 +22,7 @@ export default {
   "map_header": "Search New Brunswick",
   "browser_header": "Use the Internet",
   "events_header": "What's Happening",
+  "emergency-services_header": "Emergency Services",
 
   "browse_subtitle": "Take a quick quiz and start browsing for free",
   "browse_start": "Start Browsing",

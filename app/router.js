@@ -27,6 +27,7 @@ Router.map(function() {
   });
 
   this.route('entity', { path: '/entity/:id' } );
+  this.route('emergency-services');
 });
 
 export default Router;
