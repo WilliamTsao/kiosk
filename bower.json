@@ -5,6 +5,8 @@
     "leaflet.markerclusterer": "0.4.0",
     "font-awesome": "~4.5.0",
     "ember": "~2.8.0",
-    "ember-cli-shims": "0.1.1"
+    "ember-cli-shims": "0.1.1",
+    "urijs": "^1.18.2",
+    "socket.io-client": "^1.5.0"
   }
 }
