@@ -1,0 +1,91 @@
+<style>
+.clear{
+	clear: both;
+}
+.tile{
+	width: 31.5%;
+	float: left;
+	font-size: 2.4em;
+	padding: 0;
+}
+
+button{
+	width: 300px;
+	height:34px;
+	border-radius: 20px;
+	margin-right: 5px;
+	margin-top: 10px;
+	font-size: 1.2em;
+}
+
+section.emergency-services .tile:active{
+    border: 2.5px solid #10CA69;
+}
+
+.selected{
+	display: none;
+}
+
+.tile img{
+	max-width: 200px;
+	min-height: 0;
+}
+
+.description{
+	font-size: 1.5em;
+}
+</style>
+
+{{log model}}
+<section class="card emergency-services">
+
+{{#unless scenario_is_clicked}}
+  	<div {{action 'selected' 'Car Accident' true true false}} class="tile"><img src="car_crash.png" width="200" height="44"> Car Accident</div>
+
+  	<div {{action 'selected' 'Medical Emergency' true true false}} class="tile">{{fa-icon "plus-square"}} Medical Emergency</div>
+
+ 	<div {{action 'selected' 'Fire Emergency' false true true}} class="tile">{{fa-icon "fire"}} Fire Emergency</div>
+
+  	<div {{action 'selected' 'Armed Robbery' true true false}} class="tile"><img src="robbery.png" width="100" height="83"> Armed Robbery</div>
+
+  	<div {{action 'selected' 'Other' true true true}} class="tile">{{fa-icon "question"}} Other</div>
+
+	<div class= "clear"></div>
+
+
+{{else}}
+	{{#if other_is_clicked}}
+		{{input class = 'description' type='text' placeholder = 'Enter A Description of Your Emergency' value=situation}}
+	{{/if}}
+
+	{{#if appears.police}}
+		<div {{action 'sendPolice'}} class="tile {{if send_police 'selected'}}">{{fa-icon "taxi"}}Police</div>
+		
+
+	{{/if}}
+	{{#if appears.fire}}
+		<div {{action 'sendFire'}} class="tile {{if send_fire 'selected'}}"><img src="fire_truck.png" width="55" height="48">Fire Department</div>
+	
+
+	{{/if}}
+	{{#if appears.ambulance}}
+		<div {{action 'sendAmbulance'}} class="tile {{if send_ambulance 'selected'}}">{{fa-icon "ambulance"}}Ambulance</div>
+		
+	{{/if}}
+	
+		<div {{action 'backPage'}} class="tile" >{{fa-icon "undo"}}Return</div>
+	
+
+
+{{/unless}}
+
+
+
+  
+
+  
+</section>
+
+
+
+
