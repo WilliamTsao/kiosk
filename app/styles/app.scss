@@ -2,6 +2,8 @@
 @import 'animate';
 @import 'loading';
 
+@import "app/components/k-snake-tile/style";
+
 $info-width: 1200px;
 
 *, *:before, *:after {
